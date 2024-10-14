@@ -1,0 +1,85 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.test_sample"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.example.test_sample"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+        }
+    }
+    dependencies {
+
+
+        // Text-to-Speech
+        implementation 'com.android.support:support-v4:28.0.0'
+
+        // AudioManager for controlling audio focus
+        implementation 'androidx.media:media:1.7.0'
+
+        // For handling phone state and telephony services
+        implementation 'androidx.core:core-ktx:1.13.1'
+        implementation 'androidx.annotation:annotation:1.8.2'
+
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.0.21"
+        implementation 'io.flutter:flutter_embedding_android:3.10.5'
+        implementation 'androidx.telecom:telecom:1.0.0'
+        implementation 'androidx.accessibility:accessibility:1.1.0'
+        // Android Core libraries
+        implementation 'androidx.core:core-ktx:1.13.1'
+        implementation 'androidx.appcompat:appcompat:1.7.0'
+        implementation 'com.google.android.material:material:1.12.0'
+        implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+        // Required for Text-to-Speech functionality
+        implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.6'
+
+        // Required for TelephonyManager and call handling
+        implementation 'androidx.telecom:telecom:1.0.0'
+        implementation 'androidx.multidex:multidex:2.0.1'
+
+        // Required for managing permissions and notification channels
+        implementation 'androidx.activity:activity-ktx:1.9.2'
+        implementation 'androidx.fragment:fragment-ktx:1.8.4'
+
+        // Additional dependency for Accessibility Service (required for Android 10+ call answering)
+        implementation 'androidx.accessibility:accessibility:1.1.0'
+
+        // Flutter specific dependency
+        implementation "io.flutter:flutter_embedding_release:1.0.0"
+    }
+
+}
+
+flutter {
+    source = "../.."
+}
